@@ -1,18 +1,18 @@
 $(function() {
-    $(".change-sleep").on("click", function(event) {
+    $(".change-devoured").on("click", function(event) {
       const id = $(this).data("id");
-      const newSleep = $(this).data("newsleep");
+      const newDevour = $(this).data("newdevour");
   
-      const newSleepState = {
-        sleepy: newSleep
+      const newDevourState = {
+        devoured: newDevour
       };
   
-      $.ajax("/api/cats/" + id, {
+      $.ajax("/api/burgers/" + id, {
         type: "PUT",
-        data: newSleepState
+        data: newDevourState
       }).then(
         function() {
-          console.log("changed sleep to", newSleep);
+          console.log("changed state to", newDevour);
           location.reload();
         }
       );
@@ -21,30 +21,30 @@ $(function() {
     $(".create-form").on("submit", function(event) {
       event.preventDefault();
   
-      const newCat = {
+      const newBurger = {
         name: $("#ca").val().trim(),
-        sleepy: $("[name=sleepy]:checked").val().trim()
+        devoured: $("[name=devoured]:checked").val().trim()
       };
   
-      $.ajax("/api/cats", {
+      $.ajax("/api/burgers", {
         type: "POST",
-        data: newCat
+        data: newBurger
       }).then(
         function() {
-          console.log("created new cat");
+          console.log("created new burger");
           location.reload();
         }
       );
     });
   
-    $(".delete-cat").on("click", function(event) {
+    $(".delete-burger").on("click", function(event) {
       const id = $(this).data("id");
   
-      $.ajax("/api/cats/" + id, {
+      $.ajax("/api/burgers/" + id, {
         type: "DELETE"
       }).then(
         function() {
-          console.log("deleted cat", id);
+          console.log("deleted burger", id);
           location.reload();
         }
       );
