@@ -1,5 +1,5 @@
 $(function() {
-    $(".change-devoured").on("click", function(event) {
+    $(".change-devour").on("click", function(event) {
       const id = $(this).data("id");
       const newDevour = $(this).data("newdevour");
   
@@ -22,8 +22,7 @@ $(function() {
       event.preventDefault();
   
       const newBurger = {
-        name: $("#ca").val().trim(),
-        devoured: $("[name=devoured]:checked").val().trim()
+        name: $("#ca").val().trim()
       };
   
       $.ajax("/api/burgers", {
@@ -36,18 +35,6 @@ $(function() {
         }
       );
     });
-  
-    $(".delete-burger").on("click", function(event) {
-      const id = $(this).data("id");
-  
-      $.ajax("/api/burgers/" + id, {
-        type: "DELETE"
-      }).then(
-        function() {
-          console.log("deleted burger", id);
-          location.reload();
-        }
-      );
-    });
-  });
+
+});
   
