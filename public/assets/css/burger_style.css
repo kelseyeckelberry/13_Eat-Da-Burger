@@ -17,4 +17,13 @@ li {
 .form-group {
   margin-bottom: 5px;
 }
-  
+
+.background {
+  background-color: rgb(223, 185, 90);
+}
+
+.header {
+  color: rgb(202, 1, 1);
+  text-align: center;
+}
+
