@@ -18,6 +18,8 @@ npm i
 ## Usage
 Visit the website (linked below) and start inputting and devouring burgers!
 
+https://immense-basin-51141.herokuapp.com/
+
 ![ScreenShot](./public/assets/img/sc.png)
 
 ## Technology Used
