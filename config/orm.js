@@ -1,9 +1,9 @@
 const connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
-  const arr = [];
+  let arr = [];
 
-  for (const i = 0; i < num; i++) {
+  for (let i = 0; i < num; i++) {
     arr.push("?");
   }
 
@@ -11,9 +11,9 @@ function printQuestionMarks(num) {
 }
 
 function objToSql(ob) {
-  const arr = [];
+  let arr = [];
 
-  for (const key in ob) {
+  for (let key in ob) {
     const value = ob[key];
     if (Object.hasOwnProperty.call(ob, key)) {
       if (typeof value === "string" && value.indexOf(" ") >= 0) {
@@ -38,7 +38,7 @@ const orm = {
     });
   },
   create: function(table, cols, vals, cb) {
-    const queryString = "INSERT INTO " + table;
+    let queryString = "INSERT INTO " + table;
 
     queryString += " (";
     queryString += cols.toString();
@@ -58,7 +58,7 @@ const orm = {
     });
   },
   update: function(table, objColVals, condition, cb) {
-    const queryString = "UPDATE " + table;
+    let queryString = "UPDATE " + table;
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
@@ -74,19 +74,6 @@ const orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
-    const queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
-
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
-    });
-  }
 };
 
 module.exports = orm;

@@ -6,7 +6,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
+        <div class="col-5">
+            <p class="burger-headers">Burgers To Eat!</p>
               <ul>
                 {{#each burgers}}
                     {{#unless devoured}}
@@ -15,12 +16,13 @@
                 {{/each}}
               </ul>
         </div>
-        <div class="col-6">
-            <ul>
+        <div class="col-5">
+            <p class="burger-headers">Burgers Devoured!</p>
+            <ul class="devoured">
                 {{#each burgers}}
-                    {{#unless devoured}}
+                    {{#if devoured}}
                         <li>{{name}}</li>
-                    {{/unless}}
+                    {{/if}}
                 {{/each}}
             </ul>
         </div>
@@ -31,9 +33,9 @@
       <div class="vertical-center">
         <form class="create-form">
             <div class="form-group">
-              <input type="text" id="ca" name="name">
+              <input type="text" id="bu" name="name">
             </div>
-            <button type="button" class="btn-dark">Submit</button>
+            <button type="submit" class="btn-dark">Submit</button>
             <p>Enter a burger you want to eat. Click the "Submit" button.</p>
         </form>
       </div>

@@ -42,12 +42,24 @@ li {
 }
 
 .change-devour {
-position: fixed;
-right: 5px;
+color: rgb(202, 1, 1);
+align-content: center;
 }
 
 .container2 {
   display: flex;
   justify-content: center;
-  align-content: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.burger-headers {
+  margin-left: 45px;
+  font-size: large
+}
+
+.devoured {
+  color: lightgray;
 }
